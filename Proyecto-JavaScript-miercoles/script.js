@@ -25,10 +25,10 @@ const tableBody=document.querySelector("#studentTable tbody");
 function addStudentToTable(student){
   const row=document.createElement("tr");
   row.innerHTML=`
-  <td>${student.name}</td>
-   <td>${student.lastName}</td>
-    <td>${student.grade}</td>
-  `;
+  <td data-label="Nombre">${student.name}</td>
+  <td data-label="Apellido">${student.lastName}</td>
+  <td data-label="Nota">${student.grade}</td>
+`;
 tableBody.appendChild(row)
 }
 

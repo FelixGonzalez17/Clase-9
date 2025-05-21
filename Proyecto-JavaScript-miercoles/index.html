@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
     <h2>Notas Asignatura Front-End</h2>
@@ -11,15 +12,15 @@
     <form id="studentForm">
         <div>
             <label for="name">Nombre:</label>
-            <input type="text" id="name" required>
+            <input type="text" id="name" required oninvalid="this.setCustomValidity('Por favor, ingresa el nombre')" oninput="this.setCustomValidity('')">
         </div>
         <div>
             <label for="lastName">Apellido:</label>
-            <input type="text" id="lastName">
+            <input type="text" id="lastName" required oninvalid="this.setCustomValidity('Por favor, ingresa el apellido')" oninput="this.setCustomValidity('')">
         </div>
         <div>
             <label for="grade">Nota:</label>
-            <input type="number" id="grade" step="0.1" min="1" max="7">
+            <input type="number" id="grade" step="0.1" min="1" max="7" required oninvalid="this.setCustomValidity('Por favor, ingresa una nota entre 1.0 y 7.0')" oninput="this.setCustomValidity('')">
         </div>
         <button type="submit">Guardar</button>
     </form>
