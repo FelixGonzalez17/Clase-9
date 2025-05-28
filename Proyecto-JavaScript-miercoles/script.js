@@ -1,5 +1,7 @@
 const students=[];
 
+const tableBody=document.querySelector("#studentTable tbody");
+
 document.getElementById("studentForm").addEventListener("submit", function (e){
    e.preventDefault();
 
@@ -21,15 +23,31 @@ document.getElementById("studentForm").addEventListener("submit", function (e){
   this.reset();
 });
 
-const tableBody=document.querySelector("#studentTable tbody");
 function addStudentToTable(student){
   const row=document.createElement("tr");
   row.innerHTML=`
-  <td data-label="Nombre">${student.name}</td>
-  <td data-label="Apellido">${student.lastName}</td>
-  <td data-label="Nota">${student.grade}</td>
+  <td>${student.name}</td>
+  <td>${student.lastName}</td>
+  <td>${student.grade}</td>
+  <td> <button class="delete">Eliminar</button></td>
 `;
+
+
+row.querySelector(".delete").addEventListener("click",function(){
+  deleteEstudiante(student,row);
+});
+
 tableBody.appendChild(row)
+}
+
+function deleteEstudiante(student,row){
+    // buscar el estudiante en el array
+    const index=students.indexOf(student);
+    if(index > 1){
+        students.splice(index,1);
+        row.remove();
+        calcularPromedio();
+    }
 }
 
 const promedios= document.getElementById("average")
