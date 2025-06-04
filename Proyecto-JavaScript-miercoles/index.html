@@ -11,6 +11,12 @@
   
   <div id="average">Promedio General del Curso : N/A</div>
   
+  <div id="statistics">
+    <p>Total de estudiantes: 0</p>
+    <p>Estudiantes que deben rendir examen (nota < 5.0): 0</p>
+    <p>Estudiantes eximidos (nota ≥ 5.0): 0</p>
+  </div>
+  
   <form id="studentForm">
     <div>
       <label for="name">Nombre:</label>
@@ -48,6 +54,17 @@
       />
     </div>
 
+    <div>
+      <label for="date">Fecha:</label>
+      <input
+        type="date"
+        id="date"
+        required
+        oninvalid="this.setCustomValidity('Por favor, ingresa la fecha')"
+        oninput="this.setCustomValidity('')"
+      />
+    </div>
+
     <button type="submit" id="submitButton">Guardar</button>
   </form>
 
@@ -57,6 +74,7 @@
         <th>Nombre</th>
         <th>Apellido</th>
         <th>Nota</th>
+        <th>Fecha</th>
         <th>Acciones</th>
       </tr>
     </thead>
